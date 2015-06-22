@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ng2do</title>
+    <style media="screen">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.4em;
+            background: #eaeaea url('css/bg.png');
+            color: #4d4d4d;
+            width: 550px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: antialiased;
+            -ms-font-smoothing: antialiased;
+            -o-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+        }
+    </style>
+    <script src="scripts/traceur/traceur-runtime.js"></script>
+    <script src="scripts/typescript/typescript.js"></script>
+    <script src="scripts/system/system.src.js"></script>
+    <script src="scripts/angular2/angular2.dev.js"></script>
+    <script src="scripts/firebase/firebase.js"></script>
+</head>
+<body>
+    <todo-app>Loading...</todo-app>
+    <script>
+        System.config({
+            transpiler: "typescript",
+            typescriptOptions: {
+                emitDecoratorMetadata: true,
+                experimentalDecorators: true
+            }
+        });
+        System.paths = {
+            "firebase/angularfire": "./scripts/firebase/angularfire.js",
+            "todo": "todo.ts"
+        };
+        System.import('todo');
+    </script>
+</body>
+</html>
+// https://github.com/Microsoft/ngconf2015demo
